@@ -34,6 +34,9 @@ public class Pawn extends ChessPiece {
                 matrix[p.getRow()][p.getColumn()] = true;
             }
             p.setValues(position.getRow() - 1, position.getColumn() + 1);
+            if(getBoard().positionExists(p) && isThereOpponentPiece(p)){
+                matrix[p.getRow()][p.getColumn()] = true;
+            }
 
             //Movimento Especial En Passant Branco
             if(position.getRow() == 3){
