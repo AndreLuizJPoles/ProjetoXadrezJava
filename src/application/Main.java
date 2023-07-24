@@ -1,7 +1,5 @@
 package application;
 
-import boardgame.Board;
-import boardgame.Position;
 import chess.ChessException;
 import chess.ChessMatch;
 import chess.ChessPiece;
@@ -42,7 +40,11 @@ public class Main {
 
                 if(chessMatch.getPromoted() != null){
                     System.out.print("Insira a peça para promoção (B/N/R/Q): ");
-                    String type = sc.next();
+                    String type = sc.next().toUpperCase();
+                    while(!type.equals("B") && !type.equals("N") && !type.equals("R") && !type.equals("Q")) {
+                        System.out.print("VALOR INVÁLIDO! Insira a peça para promoção (B/N/R/Q): ");
+                        type = sc.next().toUpperCase();
+                    }
                     chessMatch.replacePromotedPiece(type);
                 }
             }
